@@ -1,0 +1,2 @@
+include src/stedsans/data/*.shp
+include src/__init__.py
