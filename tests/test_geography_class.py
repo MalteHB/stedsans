@@ -5,11 +5,10 @@ import matplotlib
 
 # import matplotlib.pyplot as plt
 
-from pathlib import Path
-
 import geopandas
 
 from stedsans import stedsans
+from stedsans.data.load_data import GeoData
 
 from parameterized import parameterized
 
@@ -41,10 +40,8 @@ class TestGeography(unittest.TestCase):
                           ])
     def test_group_by(self, sentence):
 
-        # Load shapefile
-        shp_path = Path.cwd().parent / 'src' / 'stedsans' / 'data'
-
-        danmark = geopandas.read_file(shp_path / 'KOMMUNE.shp')
+        # Load municipality file
+        danmark = GeoData.municipalities()
 
         # Initialsing a stedsans object
         geography = stedsans(sentence=sentence)
@@ -60,10 +57,8 @@ class TestGeography(unittest.TestCase):
                           ])
     def test_limit(self, sentence):
 
-        # Load shapefile
-        shp_path = Path.cwd().parent / 'src' / 'stedsans' / 'data'
-
-        danmark = geopandas.read_file(shp_path / 'KOMMUNE.shp')
+        # Load municipality file
+        danmark = GeoData.municipalities()
 
         # Initialsing a stedsans object
         geography = stedsans(sentence=sentence)
@@ -116,10 +111,8 @@ class TestGeography(unittest.TestCase):
                           ("Jakob Grøhn bor på Testvej 23 Aarhus C. Jakob bor i Rådhusparken 8 Aarhus C. MCH Arena er et legendarisk sted. Kathrine Vibel bor tæt på Dejbjerglund Efterskole. LEGOLAND er det fedeste sted på jorden. SønderjyskE er et lorte hold. Han bor på H C Andersens Boulevard København "),
                           ])
     def test_plot_locations(self, sentence):
-        # Load shapefile
-        shp_path = Path.cwd().parent / 'src' / 'stedsans' / 'data'
-
-        danmark = geopandas.read_file(shp_path / 'KOMMUNE.shp')
+        # Load municipality file
+        danmark = GeoData.municipalities()
 
         # Initialsing a stedsans objects
         geography = stedsans(sentence=sentence)
@@ -166,10 +159,8 @@ class TestGeography(unittest.TestCase):
         # Initialsing a stedsans objects
         geography = stedsans(sentence=sentence)
 
-        # Load shapefile
-        shp_path = Path.cwd().parent / 'src' / 'stedsans' / 'data'
-
-        danmark = geopandas.read_file(shp_path / 'KOMMUNE.shp')
+        # Load municipality file
+        danmark = GeoData.municipalities()
 
         # Subsetting region midtjylland
         region_m = danmark[danmark["REGIONNAVN"] == "Region Midtjylland"]

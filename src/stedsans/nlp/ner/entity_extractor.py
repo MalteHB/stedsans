@@ -1,12 +1,13 @@
 """Class for extracting entities from a given sentence
 """
-
 import nltk
 import numpy as np
 
 from tqdm import tqdm
 
 from .predict import NamedEntityRecognition
+from ...utils.core import read_file
+
 
 
 class EntityExtractor(NamedEntityRecognition):
@@ -246,14 +247,22 @@ class EntityExtractor(NamedEntityRecognition):
         return document_entities
 
     def extract_document_loc_and_org(self, file=None, language="danish"):
-    
-        if file:
+        """Extracts location and organisation entities from either a 
+            pathlib.Path object or an open object.
 
-            text = file.read_text(encoding="utf-8")
+        Args:
+            file ([io.IOBase or pathlib.PurePath], optional): file object. Defaults to None.
+            language (str, optional): danish or english. Defaults to "danish".
 
-        else:
-
-            text = self.file.read_text(encoding="utf-8")
+        Returns:
+            [type]: [description]
+        """
+        
+        if file is None:
+            
+            file = self.file
+            
+        text = read_file(file)
 
         try:
 
@@ -268,8 +277,6 @@ class EntityExtractor(NamedEntityRecognition):
         token_text = nltk.sent_tokenize(text, language=language)
 
         document_entities = []
-
-        print(f"Predicting entities for file: '{file}'")
 
         for sentence in tqdm(token_text):
 
