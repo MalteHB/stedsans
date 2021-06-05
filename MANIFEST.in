@@ -1,2 +1,2 @@
-include src/stedsans/data/*.shp
+include src/stedsans/data/*
 include src/__init__.py
