@@ -71,8 +71,7 @@ class GeoData:
             'TIMEOF_CRE': 'object',
             'TIMEOF_PUB': 'object',
             'TIMEOF_REV': 'object',
-            'TIMEOF_EXP': 'object',
-            #'geometry': 'geometry'
+            'TIMEOF_EXP': 'object'
         }
         
         df = pandas.read_csv(io.BytesIO(df), encoding="utf-8", dtype=dtypes)

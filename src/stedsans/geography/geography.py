@@ -76,7 +76,12 @@ class Geography(EntityExtractor):
                 coordinates_list = [list(x) for x in zip(lat_list, long_list)]
 
                 # Create pandas dataframe
-                d = {'places': places, 'latitude': lat_list, 'longitude': long_list}
+                d = {
+                    "entities": entities,
+                    'places': places,
+                    'latitude': lat_list,
+                    'longitude': long_list
+                }
                 dataframe = pd.DataFrame(data=d)
 
                 # Creating geopandas_df
@@ -87,7 +92,12 @@ class Geography(EntityExtractor):
             if str(output) == 'geopandas':
 
                 # Create pandas dataframe
-                d = {'places': places, 'latitude': lat_list, 'longitude': long_list}
+                d = {
+                    "entities": entities,
+                    'places': places,
+                    'latitude': lat_list,
+                    'longitude': long_list
+                }
                 dataframe = pd.DataFrame(data=d)
 
                 # Creating geopandas_df
@@ -105,7 +115,12 @@ class Geography(EntityExtractor):
             if str(output) == 'pandas':
 
                 # Create pandas dataframe
-                d = {'places': places, 'latitude': lat_list, 'longitude': long_list}
+                d = {
+                    "entities": entities,
+                    'places': places,
+                    'latitude': lat_list,
+                    'longitude': long_list
+                }
 
                 dataframe = pd.DataFrame(data=d)
 
@@ -128,12 +143,15 @@ class Geography(EntityExtractor):
         places = []
         long_list = []
         lat_list = []
+        entities = []
 
         # Looping through enities
         for i, _ in enumerate(self.entities):
+            
+            original_entity = self.entities[i][0]
 
             # Get location uising geocode
-            location = locator.geocode(self.entities[i][0],
+            location = locator.geocode(original_entity,
                                        addressdetails=True,
                                        viewbox=bounding_box,
                                        bounded=bounded)
@@ -162,6 +180,8 @@ class Geography(EntityExtractor):
                         lat_list.append(location.latitude)
 
                         long_list.append(location.longitude)
+                        
+                        entities.append(original_entity)
 
                 # If not limit given the just append location and coordinates to list
                 else:
@@ -171,6 +191,8 @@ class Geography(EntityExtractor):
                     lat_list.append(location.latitude)
 
                     long_list.append(location.longitude)
+                    
+                    entities.append(original_entity)
 
         return _assert_output(output)
 

@@ -23,7 +23,7 @@ class stedsans(Geography):
 
         if sentence:
             
-            #self.entities = self.extract_loc_and_org(sentence)
+            # self.entities = self.extract_loc_and_org(sentence)
             """Due to certain LOC entities being categorized as PER such as
             "H. C. Andersensvej", the current workaround is to extract all entities,
             then find entities with "vej" in it and replace ent with LOC and lastly,
