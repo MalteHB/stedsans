@@ -164,6 +164,11 @@ class TestGeography(unittest.TestCase):
 
         # Subsetting region midtjylland
         region_m = danmark[danmark["REGIONNAVN"] == "Region Midtjylland"]
+        
+        # Plotting choropleth with default settings
+        choropleth = geography.plot_choropleth()
+        
+        self.assertIsInstance(choropleth, matplotlib.figure.Figure)
 
         # Plotting choropleth on denmark with kommune polygons as resolution
         dk_choropleth = geography.plot_choropleth(layer=danmark)

@@ -28,7 +28,8 @@ class Geography(EntityExtractor):
                         sentence=None,
                         file=None,
                         bounding_box=None,
-                        bounded=False):
+                        bounded=False,
+                        output_language="en"):
 
         """
         Extract coordinates and addresses from entities
@@ -55,6 +56,8 @@ class Geography(EntityExtractor):
             to restrict search within e.g. 'Denmark', ((8.08997684086, 54.8000145534), (12.6900061378, 57.730016588)),
         bounded : bool (default False)
             Whether to restrict search within bounding_box coordinates or not
+        output_language : str (default "en")
+            For which language to return the geolocations in. Defaults to "en" for english.
 
 
         Returns
@@ -85,7 +88,7 @@ class Geography(EntityExtractor):
                 dataframe = pd.DataFrame(data=d)
 
                 # Creating geopandas_df
-                geopandas_df = geopandas.GeoDataFrame(dataframe, geometry=geopandas.points_from_xy(dataframe.longitude, dataframe.latitude))
+                geopandas_df = geopandas.GeoDataFrame(dataframe.copy(), geometry=geopandas.points_from_xy(dataframe.longitude, dataframe.latitude))
 
                 return coordinates_list, dataframe, geopandas_df
 
@@ -154,7 +157,8 @@ class Geography(EntityExtractor):
             location = locator.geocode(original_entity,
                                        addressdetails=True,
                                        viewbox=bounding_box,
-                                       bounded=bounded)
+                                       bounded=bounded,
+                                       language=output_language)
 
             # If a location is found
             if location is not None:
@@ -206,6 +210,7 @@ class Geography(EntityExtractor):
                        file=None,
                        bounding_box=None,
                        bounded=False,
+                       output_language="en",
                        crs=4326,
                        edge=0.15):
 
@@ -241,6 +246,8 @@ class Geography(EntityExtractor):
             Coordinate reference system to project given map to
         start_border : float (bbox_edge 0.15)
             Number of degrees for edge around bounding box
+        output_language : str (default "en")
+            For which language to return the geolocations in. Defaults to "en" for english.
 
 
         Returns
@@ -256,7 +263,8 @@ class Geography(EntityExtractor):
                                                                      sentence=sentence,
                                                                      file=file,
                                                                      bounding_box=bounding_box,
-                                                                     bounded=bounded)
+                                                                     bounded=bounded,
+                                                                     output_language=output_language)
 
         # If coordinates is empty:
         if not coordinates:
@@ -392,13 +400,15 @@ class Geography(EntityExtractor):
         """
 
         # Extracting locations using get_locations()
-        coordinates, dataframe, _ = self.get_coordinates(output=None,
-                                                         limit=limit,
-                                                         limit_area=limit_area,
-                                                         sentence=sentence,
-                                                         file=file,
-                                                         bounding_box=bounding_box,
-                                                         bounded=bounded)
+        coordinates, _, geo_dataframe = self.get_coordinates(
+            output=None,
+            limit=limit,
+            limit_area=limit_area,
+            sentence=sentence,
+            file=file,
+            bounding_box=bounding_box,
+            bounded=bounded
+        )
 
         # If coordinates is empty:
         if not coordinates:
@@ -419,9 +429,6 @@ class Geography(EntityExtractor):
             # Project to crs used by nominatim
             map_projected = layer.to_crs(crs)
 
-            # Create copy of df
-            pts = dataframe.copy()
-
             # List for number of points per polys
             pts_in_polys = []
 
@@ -432,7 +439,7 @@ class Geography(EntityExtractor):
                 pts_in_this_poly = []
 
                 # Now loop over all points with index j.
-                for j, pt in pts.iterrows():
+                for j, pt in geo_dataframe.iterrows():
 
                     # If point j is in polygon
                     if poly.geometry.contains(pt.geometry):
@@ -440,8 +447,8 @@ class Geography(EntityExtractor):
                         # Then append it to list of points in this polygon
                         pts_in_this_poly.append(pt.geometry)
 
-                        # And drop from copy of geo df to save time when searching through next polygons
-                        pts = pts.drop([j])
+                        # And drop from geo df to save time when searching through next polygons
+                        geo_dataframe = geo_dataframe.drop([j])
 
                 # Append the number of points in each poly to one list
                 pts_in_polys.append(len(pts_in_this_poly))
