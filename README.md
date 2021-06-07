@@ -25,7 +25,7 @@ __Table 1:__
 To use the code locally, start off by cloning the repository and install [Anaconda](https://docs.anaconda.com/anaconda/install/) for your OS. Afterwards create a conda environment and install the requirements.
 ```bash 
 # From the directory of this repository
-conda create -n [env_name] python=3.9  # Create conda environment
+conda create -n [env_name] python=3.8  # Create conda environment
 conda activate [env_name]  # Activate conda environment
 pip install -r requirements.txt  # Install required packages
 ```
