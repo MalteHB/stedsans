@@ -3,6 +3,10 @@ This repository is for an exam project for the course Spatial Analytics at Aarhu
 
 It is made by Jakob Grøhn Damgaard and Malte Højmark-Bertelsen.
 
+For a demonstration, we heavily suggest you to use Google Colab: 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MalteHB/stedsans/blob/main/notebooks/stedsans_demo.ipynb)
+
 The purpose of it is to build a PyPI-package capable of plotting a map of any location in a Danish sentence. To do so we employ the Natural Language Processing (NLP) technique Named Entity Recognition (NER)
 
 **NER** is a task consisting of finding words in text that constitute a specific entities and tagging them with specific labels. The most common entities are person names (PER), locations (LOC) and organizations (ORG) (Ruder, 2019).
@@ -34,9 +38,6 @@ Afterwards install `geopandas`using the pre-build binaries from Anaconda:
 ```bash
 conda install geopandas
 ```
-
-### Usage
-To see an example of usage see the Google Colab demo: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MalteHB/stedsans/blob/main/notebooks/stedsans_demo.ipynb)
 
 
 ### References
