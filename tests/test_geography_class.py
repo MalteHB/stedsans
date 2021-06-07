@@ -76,7 +76,7 @@ class TestGeography(unittest.TestCase):
         self.assertIsInstance(danmark_on_map, matplotlib.figure.Figure)
 
         # Testing ability to limit to a specific area
-        danmark_map = geography.plot_locations(layer=danmark, limit='country', limit_area='Danmark')
+        danmark_map = geography.plot_locations(layer=danmark, limit='country', limit_area='Denmark')
 
         # Asseting output object type
         self.assertIsInstance(danmark_map, matplotlib.figure.Figure)

@@ -71,7 +71,26 @@ class Geography(EntityExtractor):
         geopandas_df : geopandas.geodataframe.GeoDataFrame
             GeoDataFrame containing addresses and geometries (coordinates) for all entities
         """
+        try:
+            
+            if self.coordinates:
 
+                if self.limit == limit:
+
+                    if self.limit_area == limit_area:
+
+                        if self.bounding_box == bounding_box:
+
+                            if self.bounded == bounded:
+
+                                return self.coordinates
+            
+        except:
+            
+            print("Getting coordinates.")
+            
+            time.sleep(0.3)
+            
         def _assert_output(output):
 
             # Return according to parameter
@@ -137,9 +156,14 @@ class Geography(EntityExtractor):
 
         if file is not None:
             self.entities = self.extract_document_entities(sentence)
-
-        print("Getting coordinates.")
-        time.sleep(0.3)
+            
+        self.limit = limit
+        
+        self.limit_area = limit_area
+        
+        self.bounding_box = bounding_box
+        
+        self.bounded = bounded
 
         # Unique user ID to parse to Nominatim (to combat limited searches)
         user_agent = str(datetime.now())
@@ -202,8 +226,10 @@ class Geography(EntityExtractor):
                     long_list.append(location.longitude)
                     
                     entities.append(original_entity)
+                    
+        self.coordinates = _assert_output(output)
 
-        return _assert_output(output)
+        return self.coordinates
 
     # Plot Locations
     def plot_locations(self,
