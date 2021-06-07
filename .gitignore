@@ -234,3 +234,4 @@ notebooks/mapping_text.ipynb
 # develop
 dev/
 upload_package.txt
+notebooks/dev_stedsans_demo.ipynb

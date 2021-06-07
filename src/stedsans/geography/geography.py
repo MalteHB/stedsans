@@ -6,6 +6,8 @@ from geopy.geocoders import Nominatim
 from datetime import datetime
 from folium import plugins
 import warnings
+from tqdm.auto import tqdm
+import time
 
 import pointpats
 import folium
@@ -136,6 +138,9 @@ class Geography(EntityExtractor):
         if file is not None:
             self.entities = self.extract_document_entities(sentence)
 
+        print("Getting coordinates.")
+        time.sleep(0.3)
+
         # Unique user ID to parse to Nominatim (to combat limited searches)
         user_agent = str(datetime.now())
 
@@ -149,7 +154,7 @@ class Geography(EntityExtractor):
         entities = []
 
         # Looping through enities
-        for i, _ in enumerate(self.entities):
+        for i, _ in enumerate(tqdm(self.entities)):
             
             original_entity = self.entities[i][0]
 
