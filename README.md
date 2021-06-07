@@ -70,10 +70,12 @@ You can also plot an interactive heatmap with `plot_heatmap()`.
   <img width="100%" alt="DINO illustration" src="img/plot_heatmap.gif">
 </div>
 
-`stedsans` provides lots of other features and tools and these are very thoroughly demonstrated in the Google Colab: 
+<br />
+`stedsans` provides lots of other features and tools and these are very thoroughly demonstrated in the Google Colab (if it wasn't obvious already - we really want you to use the colab:grinning:):
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MalteHB/stedsans/blob/main/notebooks/stedsans_demo.ipynb)
 
-(if it wasn't obvious already - we really want you to use the colab :grinning: )
+(if it wasn't obvious already - we really want you to use the colab :grinning:)
 ## References
 
 Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention is All you Need. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, & R. Garnett (Eds.), Advances in Neural Information Processing Systems 30 (pp. 5998–6008). Curran Associates, Inc. http://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf
