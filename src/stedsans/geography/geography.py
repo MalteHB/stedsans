@@ -153,7 +153,7 @@ class Geography(EntityExtractor):
             
             original_entity = self.entities[i][0]
 
-            # Get location uising geocode
+            # Get location using geocode
             location = locator.geocode(original_entity,
                                        addressdetails=True,
                                        viewbox=bounding_box,
@@ -641,7 +641,7 @@ class Geography(EntityExtractor):
         q_stat_sim = pointpats.quadrat_statistics.QStatistic(pp, shape="rectangle", nx=squares, ny=squares, realizations=csr_process)
 
         # Create string containing results
-        stats = f' ---- Chi Square Value calculated from simulation is {round(q_stat_sim.chi2, 3)} ---- P-Value is {round(q_stat_sim.chi2_r_pvalue, 3)} ----'
+        stats = f' ---- Chi Square Value calculated from simulation is {round(q_stat_sim.chi2, 3)} ---- P-Value is {round(q_stat_sim.chi2_r_pvalue, 5)} ----'
 
         # Return string
         return stats
