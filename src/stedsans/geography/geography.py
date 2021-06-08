@@ -243,7 +243,8 @@ class Geography(EntityExtractor):
                        bounded=False,
                        output_language="en",
                        crs=4326,
-                       edge=0.15):
+                       edge=0.15,
+                       tiles='cartodbpositron'):
 
         """
         Plot locations as points on a map
@@ -319,7 +320,7 @@ class Geography(EntityExtractor):
 
                 # Plotting locations
                 map = folium.Map(
-                    tiles='cartodbpositron'
+                    tiles=tiles
                 )
 
                 # Start at start box
@@ -536,7 +537,8 @@ class Geography(EntityExtractor):
         file=None,
         bounding_box=None,
         bounded=False,
-        edge=0.15
+        edge=0.15,
+        tiles='cartodbpositron'
     ):
         """
         Plots a heatmap
@@ -600,7 +602,7 @@ class Geography(EntityExtractor):
 
             # Plotting locations
             map = folium.Map(
-                tiles='cartodbpositron'
+                tiles=tiles
             )
 
             # Start at bounding box
