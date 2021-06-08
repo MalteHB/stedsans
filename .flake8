@@ -29,4 +29,5 @@ ignore =
     E303,
     # W293: blank line contains whitespace
     W293,
-    
+    # E722: do not use bare 'except'
+    E722
