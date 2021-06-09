@@ -44,6 +44,14 @@ class NamedEntityRecognition(NERModel):
 
 
     def tag_sentence(self, sentence):
+        """Tags sentence with Named Entity Recognition labels using a Transformer-based Language model
+
+        Args:
+            sentence (str): Input sentece
+
+        Returns:
+            dict: Dictionary containing the tokens and their corresponding predictions and prediction probabilities.
+        """
         # For GPU use only.
         # self.model.cuda()
 
