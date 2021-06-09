@@ -150,12 +150,12 @@ For help or further information feel free to connect with either of the main dev
 [bokajgd@gmail.com](mailto:bokajgd@gmail.com?subject=[GitHub]%20stedsans)
 
 
-[<img align="left" alt="Jakob Grøhn Damgaard | Twitter" width="30px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
-[<img align="left" alt="Jakob Grøhn Damgaard | LinkedIn" width="30px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
+[<img align="left" alt="Jakob Grøhn Damgaard | Twitter" width="30px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter2]
+[<img align="left" alt="Jakob Grøhn Damgaard | LinkedIn" width="30px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin2]
 
 <br />
 
 </details>
 
-[twitter]: https://twitter.com/JakobGroehn
-[linkedin]: https://www.linkedin.com/in/jakob-gr%C3%B8hn-damgaard-04ba51144/
+[twitter2]: https://twitter.com/JakobGroehn
+[linkedin2]: https://www.linkedin.com/in/jakob-gr%C3%B8hn-damgaard-04ba51144/
