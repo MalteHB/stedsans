@@ -216,7 +216,7 @@ class Geography(EntityExtractor):
                         
                         entities.append(original_entity)
 
-                # If not limit given the just append location and coordinates to list
+                # If not limit given then just append location and coordinates to list
                 else:
 
                     places.append(location)
@@ -226,10 +226,23 @@ class Geography(EntityExtractor):
                     long_list.append(location.longitude)
                     
                     entities.append(original_entity)
-                    
-        self.coordinates = _assert_output(output)
 
-        return self.coordinates
+        # Return correct data outputs
+        if output is None:
+            self.coordinates, df, gdf = _assert_output(output)
+            return self.coordinates, df, gdf
+
+        elif output == 'coordinates':
+            self.coordinates = _assert_output(output)
+            return self.coordinates,
+
+        elif output == 'pandas':
+            df = _assert_output(output)
+            return df
+
+        elif output == 'geopandas':
+            gdf = _assert_output(output)
+            return gdf
 
     # Plot Locations
     def plot_locations(self,
