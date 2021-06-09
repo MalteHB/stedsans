@@ -1,9 +1,9 @@
 # ```stedsans```
-`stedsans` is a Danish and English geoparsing toolkit utilizing Transformer-based models (Vaswani et al, 2017), including the Danish [Ælæctra](https://huggingface.co/Maltehb/-l-ctra-danish-electra-small-cased-ner-dane) and the English [BERT](https://huggingface.co/dslim/bert-base-NER) fine-tuned for Named Entity Recognition, to allow for an efficient and intuitive geospatial analyses of text.
+`stedsans` is an innovative  Danish and English geoparsing toolkit for Python that facilitates efficient retrieval of the geospatial information embedded in textual data. The package is designed to handle textual input ranging from a single sentence to a large corpus. To broaden the appeal of the package and further set it apart from existing software, we decided to integrate user-friendly functions for visualising and statistically analysing the extracted geospatial data. `stedsans`  neatly compresses highly complex workflows into a single package with predefined functionalities that are tailored to the most common research questions and is aimed at the novice to intermediate geospatial analyst who has basic familiarity with coding and quantitative analyses. `stedsans`  utilizes Transformer-based models (Vaswani et al, 2017), including the Danish [Ælæctra](https://huggingface.co/Maltehb/-l-ctra-danish-electra-small-cased-ner-dane) and the English [BERT](https://huggingface.co/dslim/bert-base-NER) fine-tuned for Named Entity Recognition, to geotag entities. The GIS software Nominatim (v3.7.2) is used as the geocoding engine. Nominatim obtains data from the OpenStreetMap database (OpenStreetMap contributors, 2017). See metadata tables for licenses and documentation. 
 
 
 ## Demonstration of `stedsans`
-For a demonstration of the current tools, we heavily suggest you to use the Google Colab notebook: 
+For a demonstration of the current tools, we strongly suggest that use the following Google Colab notebook. This provides a guided demonstration of the key functionalities of the package: 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MalteHB/stedsans/blob/main/notebooks/stedsans_demo.ipynb)
 ## Installation
@@ -11,7 +11,7 @@ For a demonstration of the current tools, we heavily suggest you to use the Goog
 ### Windows
 Since `stedsans` requires the package `geopandas`, and the dependencies can cause several issues when using Windows, it is recommended to first install [Anaconda](https://docs.anaconda.com/anaconda/install/), which comes with pre-built binaries for `geopandas`. 
 
-After having install Anaconda, create a conda environment and then install `stedsans` using `pip` and `geopandas` using `conda`.
+After having installed Anaconda, create a conda environment and then install `stedsans` using `pip` and `geopandas` using `conda`.
 
 ```bash 
 pip install stedsans
@@ -76,13 +76,17 @@ You can also plot an interactive heatmap with `plot_heatmap()`.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MalteHB/stedsans/blob/main/notebooks/stedsans_demo.ipynb)
 
-(if it wasn't obvious already - we really want you to use the colab :grinning:)
 ## References
 
+OpenStreetMap contributors. (2017). Planet dump retrieved from https://planet.osm.org  [Retrieved on	 09-07-2021]
+<br>
+<br>
 Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention is All you Need. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, & R. Garnett (Eds.), Advances in Neural Information Processing Systems 30 (pp. 5998–6008). Curran Associates, Inc. http://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf
 
 
 ## Metadata
+
+### Metadata for software
 
 | Software metadata description                                                  |                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -94,7 +98,7 @@ Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Ka
 | If available Link to software documentation for special software               | Link to geocoding engine: https://github.com/osm-search/Nominatim - Documentation available at: https://nominatim.org/release-docs/latest/                                                                                                                                         |                                        |
 ---
 
-
+### Metadata for data
 
 | Metadata description          |                                                                                                                                                                                                                                                                                                                                                                                      |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
