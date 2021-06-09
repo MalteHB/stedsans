@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="hhttps://github.com/MalteHB/stedsans">
-    <img src="img/logo.png" alt="Logo" width="200" height="200">
+    <img src="img/logo.png" alt="Logo" width="250" height="250">
   </a>
 
   <h3 align="center">stedsans: A Geoparsing Toolkit for Pythonk</h3>
@@ -12,12 +12,14 @@
     Exam Project for Spatial Analysis - Cultural Data Science Elective 2021
     <br />
 <br>
-
-# ```stedsans```
+[Description](#description) | [Demonstration](#demonstration) | [Installation](#installation) | [Usage](#usage) | [References](#references) | [Metadata](#metadata)| [Contact](#contact)
+<br>
+<br>
+## Description
 `stedsans` is an innovative  Danish and English geoparsing toolkit for Python that facilitates efficient retrieval of the geospatial information embedded in textual data. The package is designed to handle textual input ranging from a single sentence to a large corpus. To broaden the appeal of the package and further set it apart from existing software, we decided to integrate user-friendly functions for visualising and statistically analysing the extracted geospatial data. `stedsans`  neatly compresses highly complex workflows into a single package with predefined functionalities that are tailored to the most common research questions and is aimed at the novice to intermediate geospatial analyst who has basic familiarity with coding and quantitative analyses. `stedsans`  utilizes Transformer-based models (Vaswani et al, 2017), including the Danish [Ælæctra](https://huggingface.co/Maltehb/-l-ctra-danish-electra-small-cased-ner-dane) and the English [BERT](https://huggingface.co/dslim/bert-base-NER) fine-tuned for Named Entity Recognition, to geotag entities. The GIS software Nominatim (v3.7.2) is used as the geocoding engine. Nominatim obtains data from the OpenStreetMap database (OpenStreetMap contributors, 2017). See metadata tables for licenses and documentation. 
 
 
-## Demonstration of `stedsans`
+## Demonstration
 For a demonstration of the current tools, we strongly suggest that use the following Google Colab notebook. This provides a guided demonstration of the key functionalities of the package: 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MalteHB/stedsans/blob/main/notebooks/stedsans_demo.ipynb)
