@@ -72,22 +72,26 @@ class Geography(EntityExtractor):
             GeoDataFrame containing addresses and geometries (coordinates) for all entities
         """
         try:
+
+            if sentence is None:
+                
+                if file is None:
             
-            if self.coordinates:
+                    if self.coordinates:
 
-                if self.df:
+                        if self.df:
 
-                    if self.gdf:
+                            if self.gdf:
 
-                        if self.limit == limit:
+                                if self.limit == limit:
 
-                            if self.limit_area == limit_area:
+                                    if self.limit_area == limit_area:
 
-                                if self.bounding_box == bounding_box:
+                                        if self.bounding_box == bounding_box:
 
-                                    if self.bounded == bounded:
+                                            if self.bounded == bounded:
 
-                                        return self.coordinates, self.df, self.gdf
+                                                return self.coordinates, self.df, self.gdf
             
         except:
             
