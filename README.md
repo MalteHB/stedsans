@@ -94,7 +94,7 @@ Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Ka
 | If available Link to software documentation for special software               | Link to geocoding engine: https://github.com/osm-search/Nominatim - Documentation available at: https://nominatim.org/release-docs/latest/                                                                                                                                         |                                        |
 ---
 
-<br>
+
 
 | Metadata description          |                                                                                                                                                                                                                                                                                                                                                                                      |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
