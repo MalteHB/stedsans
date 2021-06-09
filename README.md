@@ -11,7 +11,7 @@
   <p align="center">
     Exam Project for Spatial Analysis - Cultural Data Science Elective 2021
     <br />
-<br>
+
 [Description](#description) | [Demonstration](#demonstration) | [Installation](#installation) | [Usage](#usage) | [References](#references) | [Metadata](#metadata)| [Contact](#contact)
 <br>
 <br>
