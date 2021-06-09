@@ -75,15 +75,19 @@ class Geography(EntityExtractor):
             
             if self.coordinates:
 
-                if self.limit == limit:
+                if self.df:
 
-                    if self.limit_area == limit_area:
+                    if self.gdf:
 
-                        if self.bounding_box == bounding_box:
+                        if self.limit == limit:
 
-                            if self.bounded == bounded:
+                            if self.limit_area == limit_area:
 
-                                return self.coordinates
+                                if self.bounding_box == bounding_box:
+
+                                    if self.bounded == bounded:
+
+                                        return self.coordinates, self.df, self.gdf
             
         except:
             
@@ -229,12 +233,12 @@ class Geography(EntityExtractor):
 
         # Return correct data outputs
         if output is None:
-            self.coordinates, df, gdf = _assert_output(output)
-            return self.coordinates, df, gdf
+            self.coordinates, self.df, self.gdf = _assert_output(output)
+            return self.coordinates, self.df, self.gdf
 
         elif output == 'coordinates':
-            self.coordinates = _assert_output(output)
-            return self.coordinates,
+            coordinates = _assert_output(output)
+            return coordinates
 
         elif output == 'pandas':
             df = _assert_output(output)
@@ -669,13 +673,13 @@ class Geography(EntityExtractor):
             A string containing a short summary of the statistical test
         """
         # Run get_coordinate function
-        coordinates = self.get_coordinates(output='coordinates',
-                                           limit=limit,
-                                           limit_area=limit_area,
-                                           sentence=sentence,
-                                           file=file,
-                                           bounding_box=bounding_box,
-                                           bounded=bounded)
+        coordinates, _, _ = self.get_coordinates(
+            limit=limit,
+            limit_area=limit_area,
+            sentence=sentence,
+            file=file,
+            bounding_box=bounding_box,
+            bounded=bounded)
 
         # Create pointpattern using pointpats
         pp = pointpats.PointPattern(coordinates)
@@ -729,13 +733,13 @@ class Geography(EntityExtractor):
         """
 
         # Run get_coordinate function
-        coordinates = self.get_coordinates(output='coordinates',
-                                           limit=limit,
-                                           limit_area=limit_area,
-                                           sentence=sentence,
-                                           file=file,
-                                           bounding_box=bounding_box,
-                                           bounded=bounded)
+        coordinates, _, _ = self.get_coordinates(
+            limit=limit,
+            limit_area=limit_area,
+            sentence=sentence,
+            file=file,
+            bounding_box=bounding_box,
+            bounded=bounded)
 
         # Create pointpattern
         pp = pointpats.PointPattern(coordinates)
