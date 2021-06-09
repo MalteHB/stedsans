@@ -101,7 +101,6 @@ Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Ka
 | Data Licenses                 | OpenStreetMap<sup>®</sup> is open data, licensed under the Open Data Commons Open Database License (ODbL) by the OpenStreetMap Foundation(OSMF). Documentation available on: https://wiki.openstreetmap.org/wiki/Main\_Page                                                                                                                                                          |
 | Dataset: KOMMUNE.shp          | Shapefile map layer of Denmark inherent to the package. Obtained from ‘Kortforsyningen’ under ‘Styrelsen for Dataforsyning og Effektivisering’.  The data is open and public and can be downloaded from: https://download.kortforsyningen.dk/content/danmarks-administrative-geografiske-inddeling-110000   <br><br>Relevant columns include: <br>- DAGI\_ID: Identifier for the municipalities.<br>\- KOMNAVN: Name of the municipalities<br>\- REGIONKODE: Identifier for the regions.<br>\- REGIONNAVN: Name of the regians |
 | Dataset: jylland\_article.txt | [Example article used for demonstrating the package functionalities. This file is inherent to the library. The article was obtained from the encyclopedia Den Store Danske.: https://denstoredanske.lex.dk/Jylland\_-\_landsdel ](https://denstoredanske.lex.dk/Jylland_-_landsdel)                                                                                                  |
-|  |
 ## Contact
 
 For help or further information feel free to connect with either of the main developers:
