@@ -111,7 +111,7 @@ class Geography(EntityExtractor):
 
                 # Create pandas dataframe
                 d = {
-                    "entities": entities,
+                    "entities": ents,
                     'places': places,
                     'latitude': lat_list,
                     'longitude': long_list
@@ -127,7 +127,7 @@ class Geography(EntityExtractor):
 
                 # Create pandas dataframe
                 d = {
-                    "entities": entities,
+                    "entities": ents,
                     'places': places,
                     'latitude': lat_list,
                     'longitude': long_list
@@ -150,7 +150,7 @@ class Geography(EntityExtractor):
 
                 # Create pandas dataframe
                 d = {
-                    "entities": entities,
+                    "entities": ents,
                     'places': places,
                     'latitude': lat_list,
                     'longitude': long_list
@@ -162,10 +162,14 @@ class Geography(EntityExtractor):
 
         # If new sentence/txt file is passed, exrtract new entities
         if sentence is not None:
-            self.entities = self.extract_entities(sentence)
+            
+            entities = self.extract_entities(sentence)
 
-        if file is not None:
-            self.entities = self.extract_document_entities(sentence)
+        elif file is not None:
+            entities = self.extract_document_entities(sentence)
+
+        else:
+            entities = self.entities
             
         self.limit = limit
         
@@ -185,12 +189,12 @@ class Geography(EntityExtractor):
         places = []
         long_list = []
         lat_list = []
-        entities = []
+        ents = []
 
         # Looping through enities
-        for i, _ in enumerate(tqdm(self.entities)):
+        for i, _ in enumerate(tqdm(entities)):
             
-            original_entity = self.entities[i][0]
+            original_entity = entities[i][0]
 
             # Get location using geocode
             location = locator.geocode(original_entity,
@@ -224,7 +228,7 @@ class Geography(EntityExtractor):
 
                         long_list.append(location.longitude)
                         
-                        entities.append(original_entity)
+                        ents.append(original_entity)
 
                 # If not limit given then just append location and coordinates to list
                 else:
@@ -235,7 +239,7 @@ class Geography(EntityExtractor):
 
                     long_list.append(location.longitude)
                     
-                    entities.append(original_entity)
+                    ents.append(original_entity)
 
         # Return correct data outputs
         if sentence is None:
