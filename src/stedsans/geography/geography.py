@@ -71,6 +71,7 @@ class Geography(EntityExtractor):
         geopandas_df : geopandas.geodataframe.GeoDataFrame
             GeoDataFrame containing addresses and geometries (coordinates) for all entities
         """
+
         # Asserting if coordinates with same specifications have already been retrieved
         try:
 
@@ -167,7 +168,8 @@ class Geography(EntityExtractor):
 
         elif file is not None:
             entities = self.extract_document_entities(sentence)
-
+        
+        # Else use entities inherent to object
         else:
             entities = self.entities
             
@@ -243,38 +245,56 @@ class Geography(EntityExtractor):
 
         # Return correct data outputs
         if sentence is None:
+
             if output is None:
+
                 self.coordinates, self.df, self.gdf = _assert_output(output)
+
                 return self.coordinates, self.df, self.gdf
 
             elif output == 'coordinates':
+
                 coordinates = _assert_output(output)
+
                 return coordinates
 
             elif output == 'pandas':
+
                 df = _assert_output(output)
+
                 return df
 
             elif output == 'geopandas':
+
                 gdf = _assert_output(output)
+                
                 return gdf
         
         # Do not return self varaibles if a new sentence is passed
         else:
+
             if output is None:
+
                 coordinates, df, gdf = _assert_output(output)
+
                 return coordinates, df, gdf
 
             elif output == 'coordinates':
+
                 coordinates = _assert_output(output)
+
                 return coordinates
 
             elif output == 'pandas':
+
                 df = _assert_output(output)
+
                 return df
 
             elif output == 'geopandas':
+
                 gdf = _assert_output(output)
+                
                 return gdf
 
     # Plot Locations
