@@ -71,6 +71,7 @@ class Geography(EntityExtractor):
         geopandas_df : geopandas.geodataframe.GeoDataFrame
             GeoDataFrame containing addresses and geometries (coordinates) for all entities
         """
+        # Asserting if coordinates with same specifications have already been retrieved
         try:
 
             if sentence is None:
@@ -92,7 +93,8 @@ class Geography(EntityExtractor):
                                             if self.bounded == bounded:
 
                                                 return self.coordinates, self.df, self.gdf
-            
+
+        # If not, run as usual
         except:
             
             print("Getting coordinates.")
