@@ -79,9 +79,9 @@ class Geography(EntityExtractor):
             
                     if self.coordinates:
 
-                        if self.df:
+                        if self.df is not None:
 
-                            if self.gdf:
+                            if self.gdf is not None:
 
                                 if self.limit == limit:
 
@@ -236,21 +236,40 @@ class Geography(EntityExtractor):
                     entities.append(original_entity)
 
         # Return correct data outputs
-        if output is None:
-            self.coordinates, self.df, self.gdf = _assert_output(output)
-            return self.coordinates, self.df, self.gdf
+        if sentence is None:
+            if output is None:
+                self.coordinates, self.df, self.gdf = _assert_output(output)
+                return self.coordinates, self.df, self.gdf
 
-        elif output == 'coordinates':
-            coordinates = _assert_output(output)
-            return coordinates
+            elif output == 'coordinates':
+                coordinates = _assert_output(output)
+                return coordinates
 
-        elif output == 'pandas':
-            df = _assert_output(output)
-            return df
+            elif output == 'pandas':
+                df = _assert_output(output)
+                return df
 
-        elif output == 'geopandas':
-            gdf = _assert_output(output)
-            return gdf
+            elif output == 'geopandas':
+                gdf = _assert_output(output)
+                return gdf
+        
+        # Do not return self varaibles if a new sentence is passed
+        else:
+            if output is None:
+                coordinates, df, gdf = _assert_output(output)
+                return coordinates, df, gdf
+
+            elif output == 'coordinates':
+                coordinates = _assert_output(output)
+                return coordinates
+
+            elif output == 'pandas':
+                df = _assert_output(output)
+                return df
+
+            elif output == 'geopandas':
+                gdf = _assert_output(output)
+                return gdf
 
     # Plot Locations
     def plot_locations(self,

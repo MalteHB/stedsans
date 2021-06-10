@@ -92,6 +92,15 @@ class TestGeography(unittest.TestCase):
         geography = stedsans(sentence=sentence)
 
         # Run function
+        coordinates, df, gdf = geography.get_coordinates(limit='country', limit_area='Denmark')
+
+        # Run function
+        coordinates, df, gdf = geography.get_coordinates()
+        
+        # Run function
+        coordinates, df, gdf = geography.get_coordinates(sentence='Jakob bor i København')
+
+        # Run function
         coordinates, df, gdf = geography.get_coordinates()
 
         # Test outouts
